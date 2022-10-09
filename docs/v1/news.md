@@ -40,3 +40,14 @@ example response:
 ```
 2022-10-03T15:46:13.000Z
 ```
+
+## Title of News
+```
+https://replit_link/v1/news/<news id>/title
+```
+"news id" is the news story you want to use, 0 being the most recent.
+
+example response:
+```
+New Scratch Design Studio!
+```

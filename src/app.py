@@ -56,3 +56,10 @@ def v1_news_time(key):
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["stamp"])
+
+
+@app.route("/v1/news/<key>/title")
+def v1_news_title(key):
+    news = curl("https://api.scratch.mit.edu/news")
+    parseable = json.loads(news)
+    return str(parseable[int(key)]["headline"])
