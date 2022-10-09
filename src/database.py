@@ -2,6 +2,7 @@ from operator import ne
 from time import sleep
 from urllib.request import urlopen
 from os import listdir, system
+from random import randint
 
 
 def curl(url):
@@ -25,6 +26,8 @@ def get_file(url):
     # /news
     url_converted = url.replace("/", ".")
     try:
+        if randint(1, 5) == 3:
+            raise FileNotFoundError
         file = open("../db/" + url_converted, "r")
         return file.read()
     except FileNotFoundError:
