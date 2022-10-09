@@ -53,6 +53,8 @@ def v1_news_raw():
 
 @app.route("/v1/news/<key>")
 def v1_news(key):
+    if key > 0 and key < 21:
+        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)])
@@ -60,6 +62,8 @@ def v1_news(key):
 
 @app.route("/v1/news/<key>/id")
 def v1_news_id(key):
+    if key > 0 and key < 21:
+        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["id"])
@@ -67,6 +71,8 @@ def v1_news_id(key):
 
 @app.route("/v1/news/<key>/timestamp")
 def v1_news_time(key):
+    if key > 0 and key < 21:
+        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["stamp"])
@@ -74,6 +80,8 @@ def v1_news_time(key):
 
 @app.route("/v1/news/<key>/title")
 def v1_news_title(key):
+    if key > 0 and key < 21:
+        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["headline"])
@@ -81,6 +89,8 @@ def v1_news_title(key):
 
 @app.route("/v1/news/<key>/url")
 def v1_news_url(key):
+    if key > 0 and key < 21:
+        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["url"])
@@ -88,6 +98,8 @@ def v1_news_url(key):
 
 @app.route("/v1/news/<key>/image_url")
 def v1_news_image(key):
+    if key > 0 and key < 21:
+        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["image"])
@@ -95,6 +107,8 @@ def v1_news_image(key):
 
 @app.route("/v1/news/<key>/description")
 def v1_news_desc(key):
+    if key > 0 and key < 21:
+        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["copy"])
@@ -106,18 +120,45 @@ def v1_news_desc(key):
 
 @app.route("/v1/users/<username>")
 def v1_users_raw(username):
-    return curl(f"https://api.scratch.mit.edu/users/{username}")
+    try:
+        return curl(f"https://api.scratch.mit.edu/users/{username}")
+    except:
+        return "<h3>Error: That username was not found.</h3>"
 
 
 @app.route("/v1/users/<username>/id")
 def v1_users_id(username):
-    data = curl(f"https://api.scratch.mit.edu/users/{username}")
+    try:
+        data = curl(f"https://api.scratch.mit.edu/users/{username}")
+    except:
+        return "<h3>Error: That username was not found.</h3>"
     parseable = json.loads(data)
     return str(parseable["id"])
 
 
 @app.route("/v1/users/<username>/is_scratchteam")
 def v1_users_is_scratchteam(username):
-    data = curl(f"https://api.scratch.mit.edu/users/{username}")
+    try:
+        data = curl(f"https://api.scratch.mit.edu/users/{username}")
+    except:
+        return "<h3>Error: That username was not found.</h3>"
     parseable = json.loads(data)
     return str(parseable["scratchteam"])
+
+
+# Error Handling
+
+
+@app.route("/v1/news/raw")
+def error410():
+    return "<h3>410 Error - This url has been moved to https://ScratchDBUpgraded.applejuicepro.repl.co/v1/news</h3>"
+
+
+@app.errorhandler(404)
+def error404(error):
+    return "<h3>404 Error - This url cannot be found. Check it for typos, or go to https://github.com/michaeleldar/ScratchDBUpgraded/tree/master/docs/v1\n for the docs.</h3>"
+
+
+@app.errorhandler(500)
+def error500(error):
+    return "<h3>Sorry, it looks like our server malfunctioned. Please go to https://scratch.mit.edu/discuss/topic/634264/ and report what happened there."
