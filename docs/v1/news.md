@@ -62,3 +62,14 @@ example response:
 ```
 https://scratch.mit.edu/studios/32165724
 ```
+
+## Image URL of News
+```
+https://replit_link/v1/news/<news id>/image_url
+```
+"news id" is the news story you want to use, 0 being the most recent.
+
+example response:
+```
+https://64.media.tumblr.com/b88ede539189dba2642eff1d1c3644ab/ae5852b3101cd7b8-ac/s540x810/a42b012044a9f578ac21fe9b305419e111eb4efc.png
+```
