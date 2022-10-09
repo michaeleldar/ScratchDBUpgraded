@@ -13,7 +13,7 @@ example response:
 ```
 https://replit_link/v1/news/<news id>/id
 ```
-"news id" is the news story you want to use, 0 being the latest.
+"news id" is the news story you want to use, 0 being the most recent.
 
 example response:
 ```
