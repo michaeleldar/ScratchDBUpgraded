@@ -2,16 +2,10 @@ from flask import Flask
 from urllib.request import urlopen
 import json
 import requests
-
+from database import get_file
+from time import sleep
 
 app = Flask(__name__)
-
-
-def curl(url):
-    page = urlopen(f"https://thingproxy.freeboard.io/fetch/{url}")
-    data_bytes = page.read()
-    return data_bytes.decode("utf-8")
-
 
 # Root
 
@@ -48,7 +42,7 @@ def login(username, password):
 
 @app.route("/v1/news")
 def v1_news_raw():
-    return curl("https://api.scratch.mit.edu/news")
+    return get_file("news")
 
 
 @app.route("/v1/news/<key>")
@@ -58,7 +52,7 @@ def v1_news(key):
             return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     except:
         return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
-    news = curl("https://api.scratch.mit.edu/news")
+    news = get_file("news")
     parseable = json.loads(news)
     return str(parseable[int(key)])
 
@@ -70,7 +64,7 @@ def v1_news_id(key):
             return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     except:
         return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
-    news = curl("https://api.scratch.mit.edu/news")
+    news = get_file("news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["id"])
 
@@ -82,7 +76,7 @@ def v1_news_time(key):
             return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     except:
         return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
-    news = curl("https://api.scratch.mit.edu/news")
+    news = get_file("news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["stamp"])
 
@@ -94,7 +88,7 @@ def v1_news_title(key):
             return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     except:
         return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
-    news = curl("https://api.scratch.mit.edu/news")
+    news = get_file("news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["headline"])
 
@@ -106,7 +100,7 @@ def v1_news_url(key):
             return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     except:
         return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
-    news = curl("https://api.scratch.mit.edu/news")
+    news = get_file("news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["url"])
 
@@ -118,7 +112,7 @@ def v1_news_image(key):
             return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     except:
         return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
-    news = curl("https://api.scratch.mit.edu/news")
+    news = get_file("news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["image"])
 
@@ -130,7 +124,7 @@ def v1_news_desc(key):
             return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     except:
         return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
-    news = curl("https://api.scratch.mit.edu/news")
+    news = get_file("news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["copy"])
 
@@ -142,7 +136,7 @@ def v1_news_desc(key):
 @app.route("/v1/users/<username>")
 def v1_users_raw(username):
     try:
-        return curl(f"https://api.scratch.mit.edu/users/{username}")
+        return get_file(f"users/{username}")
     except:
         return "<h3>Error: That username was not found.</h3>"
 
@@ -150,7 +144,7 @@ def v1_users_raw(username):
 @app.route("/v1/users/<username>/id")
 def v1_users_id(username):
     try:
-        data = curl(f"https://api.scratch.mit.edu/users/{username}")
+        data = get_file(f"users/{username}")
     except:
         return "<h3>Error: That username was not found.</h3>"
     parseable = json.loads(data)
@@ -160,7 +154,7 @@ def v1_users_id(username):
 @app.route("/v1/users/<username>/is_scratchteam")
 def v1_users_is_scratchteam(username):
     try:
-        data = curl(f"https://api.scratch.mit.edu/users/{username}")
+        data = get_file(f"users/{username}")
     except:
         return "<h3>Error: That username was not found.</h3>"
     parseable = json.loads(data)
@@ -170,7 +164,7 @@ def v1_users_is_scratchteam(username):
 @app.route("/v1/users/<username>/join_date")
 def v1_users_join_date(username):
     try:
-        data = curl(f"https://api.scratch.mit.edu/users/{username}")
+        data = get_file(f"users/{username}")
     except:
         return "<h3>Error: That username was not found.</h3>"
     parseable = json.loads(data)
