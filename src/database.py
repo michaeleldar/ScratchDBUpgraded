@@ -12,12 +12,12 @@ def curl(url):
 
 
 def update_db():
-    files = listdir("../db")
+    files = listdir("db")
     for file in files:
         file_formatted = file.replace(".", "/")
         page = curl("https://api.scratch.mit.edu/" + file_formatted)
 
-        file_file = open(f"../db/{file}", "w")
+        file_file = open(f"db/{file}", "w")
         file_file.write(page)
 
 
@@ -28,12 +28,12 @@ def get_file(url):
     try:
         if randint(1, 5) == 3:
             raise FileNotFoundError
-        file = open("../db/" + url_converted, "r")
+        file = open("db/" + url_converted, "r")
         return file.read()
     except FileNotFoundError:
         data = curl("https://api.scratch.mit.edu/" + url)
         system("pwd")
-        file = open("../db/" + url_converted, "w")
+        file = open("db/" + url_converted, "w")
         file.write(data)
         return data
 
