@@ -53,8 +53,11 @@ def v1_news_raw():
 
 @app.route("/v1/news/<key>")
 def v1_news(key):
-    if key > 0 and key < 21:
-        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
+    try:
+        if int(key) < 0 or int(key) > 19:
+            return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
+    except:
+        return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)])
@@ -62,8 +65,11 @@ def v1_news(key):
 
 @app.route("/v1/news/<key>/id")
 def v1_news_id(key):
-    if key > 0 and key < 21:
-        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
+    try:
+        if int(key) < 0 or int(key) > 19:
+            return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
+    except:
+        return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["id"])
@@ -71,8 +77,11 @@ def v1_news_id(key):
 
 @app.route("/v1/news/<key>/timestamp")
 def v1_news_time(key):
-    if key > 0 and key < 21:
-        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
+    try:
+        if int(key) < 0 or int(key) > 19:
+            return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
+    except:
+        return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["stamp"])
@@ -80,8 +89,11 @@ def v1_news_time(key):
 
 @app.route("/v1/news/<key>/title")
 def v1_news_title(key):
-    if key > 0 and key < 21:
-        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
+    try:
+        if int(key) < 0 or int(key) > 19:
+            return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
+    except:
+        return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["headline"])
@@ -89,8 +101,11 @@ def v1_news_title(key):
 
 @app.route("/v1/news/<key>/url")
 def v1_news_url(key):
-    if key > 0 and key < 21:
-        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
+    try:
+        if int(key) < 0 or int(key) > 19:
+            return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
+    except:
+        return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["url"])
@@ -98,8 +113,11 @@ def v1_news_url(key):
 
 @app.route("/v1/news/<key>/image_url")
 def v1_news_image(key):
-    if key > 0 and key < 21:
-        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
+    try:
+        if int(key) < 0 or int(key) > 19:
+            return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
+    except:
+        return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["image"])
@@ -107,8 +125,11 @@ def v1_news_image(key):
 
 @app.route("/v1/news/<key>/description")
 def v1_news_desc(key):
-    if key > 0 and key < 21:
-        return "<h3>Error: Key must be a value between 1 and 20, inclusive.</h3>"
+    try:
+        if int(key) < 0 or int(key) > 19:
+            return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
+    except:
+        return "<h3>Error: Key must be a value between 1 and 19, inclusive.</h3>"
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["copy"])
