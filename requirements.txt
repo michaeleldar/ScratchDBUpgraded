@@ -1,3 +1,5 @@
 flask
 urllib
 json
+requests
+json

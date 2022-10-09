@@ -1,6 +1,7 @@
 from flask import Flask
 from urllib.request import urlopen
 import json
+import requests
 
 
 app = Flask(__name__)
@@ -12,6 +13,9 @@ def curl(url):
     return data_bytes.decode("utf-8")
 
 
+# Root
+
+
 @app.route("/")
 def index():
     return (
@@ -19,17 +23,27 @@ def index():
     )
 
 
+# Login (Broken)
+
+"""
+@app.route("/login/<username>/<password>")
+def login(username, password):
+    headers = {
+        "Cookie": "scratchcsrftoken=a; scratchlanguage=en",
+        "Origin": "https://scratch.mit.edu",
+        "Referer": "https://scratch.mit.edu/",
+        "X-CSRFToken": "a",
+        "X-Requested-With": "XMLHttpRequest",
+        "Content-Type": "application/json",
+    }
+    body = {"useMessages": True, "username": username, "password": password}
+    api_endpoint = "https://scratch.mit.edu/accounts/login"
+    out = requests.post(url=api_endpoint, headers=headers, b)
+    print(out)
+    return str(out)
 """
 
-@app.route("/test")
-def test():
-    return f"Welcome to the testing page"
-
-
-@app.route("/test/<thing>")
-def test2(thing):
-    return f"Welcome to the testing page: {thing}"
-"""
+# News
 
 
 @app.route("/v1/news/raw")
@@ -84,3 +98,6 @@ def v1_news_desc(key):
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["copy"])
+
+
+# Start of user API.
