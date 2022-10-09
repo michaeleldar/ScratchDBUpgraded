@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 def curl(url):
-    page = urlopen(url)
+    page = urlopen(f"https://thingproxy.freeboard.io/fetch/{url}")
     data_bytes = page.read()
     return data_bytes.decode("utf-8")
 
