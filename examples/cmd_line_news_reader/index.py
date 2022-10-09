@@ -10,6 +10,7 @@ def curl(url):
 print(
     "Welcome to the slow, bad, complicated and very ineffecient command line scratch news reader."
 )
+print("Now less slow and ineffecient due to ScratchDB caching updates!")
 how_far = input("How far back do you want to read news from (max 20)? ")
 is_european = input("Do you live in europe y/n (for date formatting)? ")
 if is_european == "y":
