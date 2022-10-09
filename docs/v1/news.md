@@ -51,3 +51,14 @@ example response:
 ```
 New Scratch Design Studio!
 ```
+
+## URL of News
+```
+https://replit_link/v1/news/<news id>/url
+```
+"news id" is the news story you want to use, 0 being the most recent.
+
+example response:
+```
+https://scratch.mit.edu/studios/32165724
+```
