@@ -46,7 +46,7 @@ def login(username, password):
 # News
 
 
-@app.route("/v1/news/raw")
+@app.route("/v1/news")
 def v1_news_raw():
     return curl("https://api.scratch.mit.edu/news")
 
@@ -100,4 +100,10 @@ def v1_news_desc(key):
     return str(parseable[int(key)]["copy"])
 
 
-# Start of user API.
+# Users
+# bio = About me, status = what I'm working on
+
+
+@app.route("/v1/users/<username>/raw")
+def v1_users_raw(username):
+    return curl(f"https://api.scratch.mit.edu/users/{username}")
