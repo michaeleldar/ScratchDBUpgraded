@@ -2,7 +2,7 @@
 
 ## Raw News
 ```
-https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/news/raw
+https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/news
 ```
 example response:
 ```

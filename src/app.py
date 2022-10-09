@@ -104,6 +104,8 @@ def v1_news_desc(key):
 # bio = About me, status = what I'm working on
 
 
-@app.route("/v1/users/<username>/raw")
+@app.route("/v1/users/<username>")
 def v1_users_raw(username):
     return curl(f"https://api.scratch.mit.edu/users/{username}")
+
+@app.route("/v1/users/<username>/")
