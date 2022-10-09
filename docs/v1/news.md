@@ -71,5 +71,17 @@ https://replit_link/v1/news/<news id>/image_url
 
 example response:
 ```
-https://64.media.tumblr.com/b88ede539189dba2642eff1d1c3644ab/ae5852b3101cd7b8-ac/s540x810/a42b012044a9f578ac21fe9b305419e111eb4efc.png
+https://64.media.tumblr.com/b88ede539189dba2642eff1d1c3644ab/ae5852b3101cd7b8-ac/s540x810
+a42b012044a9f578ac21fe9b305419e111eb4efc.png
+```
+
+## Description of News
+```
+https://replit_link/v1/news/<news id>/description
+```
+"news id" is the news story you want to use, 0 being the most recent.
+
+example response:
+```
+In this SDS, we’re inviting you to create a project that incorporates dots into your creation. Learn more here!
 ```

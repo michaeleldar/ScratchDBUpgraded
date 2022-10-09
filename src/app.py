@@ -77,3 +77,10 @@ def v1_news_image(key):
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["image"])
+
+
+@app.route("/v1/news/<key>/description")
+def v1_news_desc(key):
+    news = curl("https://api.scratch.mit.edu/news")
+    parseable = json.loads(news)
+    return str(parseable[int(key)]["copy"])
