@@ -15,7 +15,7 @@ def curl(url):
 @app.route("/")
 def index():
     return (
-        "Welcome to ScratchDBUpgraded. You can find documentation on the forum thread."
+        "Welcome to ScratchDBUpgraded. You can find documentation in the docs folder."
     )
 
 
