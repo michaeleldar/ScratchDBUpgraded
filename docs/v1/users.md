@@ -17,3 +17,12 @@ example response:
 ```
 77769311
 ```
+
+## User is scratchteam?
+```
+https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/users/<username>/is_scratchteam
+```
+example response:
+```
+False
+```

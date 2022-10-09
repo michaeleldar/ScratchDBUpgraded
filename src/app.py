@@ -116,10 +116,8 @@ def v1_users_id(username):
     return str(parseable["id"])
 
 
-"""
 @app.route("/v1/users/<username>/is_scratchteam")
 def v1_users_is_scratchteam(username):
     data = curl(f"https://api.scratch.mit.edu/users/{username}")
     parseable = json.loads(data)
     return str(parseable["scratchteam"])
-"""
