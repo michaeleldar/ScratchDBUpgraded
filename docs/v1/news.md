@@ -2,7 +2,7 @@
 
 ## Raw News
 ```
-https://replit_link/v1/news/raw
+https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/news/raw
 ```
 example response:
 ```
@@ -11,7 +11,7 @@ example response:
 
 ## News by Key
 ```
-https://replit_link/v1/news/<news id>
+https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/news/<news id>
 ```
 "news id" is the news story you want to use, 0 being the most recent.
 example response:
@@ -21,7 +21,7 @@ example response:
 
 ## ID of News
 ```
-https://replit_link/v1/news/<news id>/id
+https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/news/<news id>/id
 ```
 "news id" is the news story you want to use, 0 being the most recent.
 
@@ -32,7 +32,7 @@ example response:
 
 ## Timestamp of News
 ```
-https://replit_link/v1/news/<news id>/timestamp
+https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/news/<news id>/timestamp
 ```
 "news id" is the news story you want to use, 0 being the most recent.
 
@@ -43,7 +43,7 @@ example response:
 
 ## Title of News
 ```
-https://replit_link/v1/news/<news id>/title
+https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/news/<news id>/title
 ```
 "news id" is the news story you want to use, 0 being the most recent.
 
@@ -54,7 +54,7 @@ New Scratch Design Studio!
 
 ## URL of News
 ```
-https://replit_link/v1/news/<news id>/url
+https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/news/<news id>/url
 ```
 "news id" is the news story you want to use, 0 being the most recent.
 
@@ -65,7 +65,7 @@ https://scratch.mit.edu/studios/32165724
 
 ## Image URL of News
 ```
-https://replit_link/v1/news/<news id>/image_url
+https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/news/<news id>/image_url
 ```
 "news id" is the news story you want to use, 0 being the most recent.
 
@@ -77,7 +77,7 @@ a42b012044a9f578ac21fe9b305419e111eb4efc.png
 
 ## Description of News
 ```
-https://replit_link/v1/news/<news id>/description
+https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/news/<news id>/description
 ```
 "news id" is the news story you want to use, 0 being the most recent.
 
