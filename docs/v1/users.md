@@ -26,3 +26,12 @@ example response:
 ```
 False
 ```
+
+## User join date
+```
+https://https://ScratchDBUpgraded.applejuicepro.repl.co/v1/users/<username>/join_date
+```
+example response:
+```
+2021-05-27T14:28:52.000Z
+```

@@ -167,6 +167,16 @@ def v1_users_is_scratchteam(username):
     return str(parseable["scratchteam"])
 
 
+@app.route("/v1/users/<username>/join_date")
+def v1_users_join_date(username):
+    try:
+        data = curl(f"https://api.scratch.mit.edu/users/{username}")
+    except:
+        return "<h3>Error: That username was not found.</h3>"
+    parseable = json.loads(data)
+    return str(parseable["history"]["joined"])
+
+
 # Error Handling
 
 
