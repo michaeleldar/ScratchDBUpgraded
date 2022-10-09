@@ -37,8 +37,22 @@ def v1_news_raw():
     return curl("https://api.scratch.mit.edu/news")
 
 
+@app.route("/v1/news/<key>")
+def v1_news(key):
+    news = curl("https://api.scratch.mit.edu/news")
+    parseable = json.loads(news)
+    return str(parseable[int(key)])
+
+
 @app.route("/v1/news/<key>/id")
 def v1_news_id(key):
     news = curl("https://api.scratch.mit.edu/news")
     parseable = json.loads(news)
     return str(parseable[int(key)]["id"])
+
+
+@app.route("/v1/news/<key>/timestamp")
+def v1_news_time(key):
+    news = curl("https://api.scratch.mit.edu/news")
+    parseable = json.loads(news)
+    return str(parseable[int(key)]["stamp"])
