@@ -108,4 +108,18 @@ def v1_news_desc(key):
 def v1_users_raw(username):
     return curl(f"https://api.scratch.mit.edu/users/{username}")
 
-@app.route("/v1/users/<username>/")
+
+@app.route("/v1/users/<username>/id")
+def v1_users_id(username):
+    data = curl(f"https://api.scratch.mit.edu/users/{username}")
+    parseable = json.loads(data)
+    return str(parseable["id"])
+
+
+"""
+@app.route("/v1/users/<username>/is_scratchteam")
+def v1_users_is_scratchteam(username):
+    data = curl(f"https://api.scratch.mit.edu/users/{username}")
+    parseable = json.loads(data)
+    return str(parseable["scratchteam"])
+"""
